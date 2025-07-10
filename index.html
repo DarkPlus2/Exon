@@ -1,50 +1,342 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hyper Ultra Pro Max Bot</title>
-  <link rel="stylesheet" href="/css/main.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ULTRA Music | Premium Discord Bot</title>
+    <meta name="description" content="The most advanced Discord music bot with crystal clear audio, playlist support, and premium features">
+    
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="/assets/fonts/Geist-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/images/hero-bg.webp" as="image">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#6d28d9">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="ULTRA Music Bot">
+    <meta property="og:description" content="Premium Discord music experience">
+    <meta property="og:image" content="https://yourdomain.com/assets/images/social-preview.jpg">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
-  <header>
-    <h1>🎵 Hyper Ultra Pro Max Bot</h1>
-    <p>The most powerful music experience on Discord</p>
-    <div class="buttons">
-      <a href="#" class="btn">Invite</a>
-      <a href="#" class="btn">Support</a>
+    <!-- Gradient Background -->
+    <div class="gradient-bg"></div>
+    
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="/assets/images/logo.svg" alt="ULTRA Music" width="120" height="40">
+            </a>
+            
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#commands" class="nav-link">Commands</a>
+                <a href="#premium" class="nav-link">Premium</a>
+                <a href="#stats" class="nav-link">Stats</a>
+                <a href="https://docs.ultramusic.gg" class="nav-link">Docs</a>
+            </div>
+            
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">
+                    <i class="ph ph-moon"></i>
+                </button>
+                
+                <a href="/invite" class="btn btn-primary" id="invite-btn">
+                    <i class="ph ph-discord-logo"></i>
+                    Invite Bot
+                </a>
+                
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="/" class="logo">
+                <img src="/assets/images/logo.svg" alt="ULTRA Music" width="120" height="40">
+            </a>
+            <button class="close-menu-btn" id="close-menu-btn">
+                <i class="ph ph-x"></i>
+            </button>
+        </div>
+        <div class="mobile-menu-links">
+            <a href="#features" class="mobile-nav-link">Features</a>
+            <a href="#commands" class="mobile-nav-link">Commands</a>
+            <a href="#premium" class="mobile-nav-link">Premium</a>
+            <a href="#stats" class="mobile-nav-link">Stats</a>
+            <a href="https://docs.ultramusic.gg" class="mobile-nav-link">Docs</a>
+            <a href="/invite" class="btn btn-primary mobile-invite-btn">
+                <i class="ph ph-discord-logo"></i>
+                Invite Bot
+            </a>
+        </div>
     </div>
-  </header>
-
-  <section id="stats">
-    <h2>📊 Stats</h2>
-    <div id="statistics-container"></div>
-  </section>
-
-  <section id="features">
-    <h2>🚀 Features</h2>
-    <p>Enjoy blazing-fast music streaming, 24/7 uptime, customizable prefix, and more!</p>
-  </section>
-
-  <section id="commands">
-    <h2>🧾 Commands</h2>
-    <div id="commands-container"></div>
-  </section>
-
-  <section id="police">
-    <h2>🛡️ Police</h2>
-    <p>We respect your privacy. View our <a href="#">privacy policy</a> and <a href="#">terms of service</a>.</p>
-  </section>
-
-  <section id="docs">
-    <h2>📚 Documentation</h2>
-    <a href="#" class="btn">View Docs</a>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Hyper Ultra Pro Max. All rights reserved.</p>
-  </footer>
-
-  <script type="module" src="/js/style.js"></script>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">ULTRA</span> Music Experience
+                </h1>
+                <p class="hero-subtitle">
+                    The most advanced Discord music bot with crystal clear audio, 
+                    advanced filters, and seamless platform integration
+                </p>
+                <div class="hero-actions">
+                    <a href="/invite" class="btn btn-lg btn-primary">
+                        <i class="ph ph-discord-logo"></i>
+                        Add to Discord
+                    </a>
+                    <a href="#features" class="btn btn-lg btn-secondary">
+                        <i class="ph ph-sparkle"></i>
+                        Explore Features
+                    </a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-value" id="server-count">10,000+</div>
+                        <div class="stat-label">Servers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="user-count">5M+</div>
+                        <div class="stat-label">Users</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="song-count">50M+</div>
+                        <div class="stat-label">Songs Played</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-media">
+                <div class="mockup-wrapper">
+                    <img src="/assets/images/bot-mockup.webp" alt="ULTRA Bot Interface" class="bot-mockup">
+                    <div class="mockup-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Premium Features</h2>
+                <p class="section-subtitle">Everything you need for the ultimate music experience</p>
+            </div>
+            
+            <div class="features-grid" id="features-container">
+                <!-- Features loaded from features.js -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Commands Section -->
+    <section class="commands" id="commands">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Bot Commands</h2>
+                <p class="section-subtitle">Full control at your fingertips</p>
+                
+                <div class="command-search">
+                    <input type="text" id="command-search" placeholder="Search commands...">
+                    <i class="ph ph-magnifying-glass"></i>
+                </div>
+            </div>
+            
+            <div class="commands-container" id="commands-container">
+                <!-- Commands loaded from commands.js -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Premium Section -->
+    <section class="premium" id="premium">
+        <div class="container">
+            <div class="premium-card glass-card">
+                <div class="premium-content">
+                    <h2 class="premium-title">ULTRA <span>Premium</span></h2>
+                    <p class="premium-subtitle">
+                        Unlock the full potential with premium features
+                    </p>
+                    
+                    <ul class="premium-features">
+                        <li><i class="ph ph-check-circle"></i> Priority access to new features</li>
+                        <li><i class="ph ph-check-circle"></i> High quality audio (320kbps)</li>
+                        <li><i class="ph ph-check-circle"></i> Advanced audio effects</li>
+                        <li><i class="ph ph-check-circle"></i> Unlimited playlist length</li>
+                        <li><i class="ph ph-check-circle"></i> 24/7 music without limits</li>
+                        <li><i class="ph ph-check-circle"></i> Dedicated support</li>
+                    </ul>
+                    
+                    <a href="/premium" class="btn btn-lg btn-premium">
+                        <i class="ph ph-crown"></i>
+                        Get Premium
+                    </a>
+                </div>
+                
+                <div class="premium-image">
+                    <img src="/assets/images/premium-badge.webp" alt="ULTRA Premium" width="400" height="400">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats Section -->
+    <section class="stats" id="stats">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Real-time Stats</h2>
+                <p class="section-subtitle">Powered by millions of users worldwide</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="ph ph-discord-logo"></i>
+                    </div>
+                    <div class="stat-data">
+                        <div class="stat-number" id="live-servers">10,000+</div>
+                        <div class="stat-label">Active Servers</div>
+                    </div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="ph ph-users"></i>
+                    </div>
+                    <div class="stat-data">
+                        <div class="stat-number" id="live-users">5M+</div>
+                        <div class="stat-label">Monthly Users</div>
+                    </div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="ph ph-music-notes"></i>
+                    </div>
+                    <div class="stat-data">
+                        <div class="stat-number" id="live-songs">50M+</div>
+                        <div class="stat-label">Songs Played</div>
+                    </div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="ph ph-timer"></i>
+                    </div>
+                    <div class="stat-data">
+                        <div class="stat-number" id="live-uptime">99.9%</div>
+                        <div class="stat-label">Uptime</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-card">
+                <h2 class="cta-title">Ready to enhance your server?</h2>
+                <p class="cta-subtitle">
+                    Join millions of servers enjoying ULTRA Music today
+                </p>
+                <a href="/invite" class="btn btn-lg btn-primary">
+                    <i class="ph ph-discord-logo"></i>
+                    Add to Discord
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="/" class="footer-logo">
+                        <img src="/assets/images/logo.svg" alt="ULTRA Music" width="120" height="40">
+                    </a>
+                    <p class="footer-text">
+                        The most advanced Discord music bot with crystal clear audio and premium features.
+                    </p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Discord">
+                            <i class="ph ph-discord-logo"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="ph ph-twitter-logo"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <i class="ph ph-github-logo"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="/docs">Documentation</a></li>
+                        <li><a href="/status">Status</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/changelog">Changelog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/team">Our Team</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Premium</h3>
+                    <ul class="footer-links">
+                        <li><a href="/premium">Premium Features</a></li>
+                        <li><a href="/pricing">Pricing</a></li>
+                        <li><a href="/patreon">Patreon</a></li>
+                        <li><a href="/partners">Partners</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2023 ULTRA Music. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="/terms">Terms of Service</a>
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="/cookies">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script type="module" src="/js/main.js"></script>
+    <script src="/js/modules/commands.js" defer></script>
+    <script src="/js/modules/features.js" defer></script>
+    <script src="/js/modules/stats.js" defer></script>
 </body>
 </html>
