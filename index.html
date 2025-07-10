@@ -3,150 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ULTRA | Premium Discord Music Bot</title>
-    <meta name="description" content="The most advanced Discord music bot with crystal clear audio and premium features">
-    <link rel="stylesheet" href="style.css">
+    <title>NOVA | Advanced Discord Music Bot</title>
+    <meta name="description" content="High quality Discord music bot with crystal clear audio">
+    
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="assets/fonts/Geist-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/images/hero-bg.webp" as="image">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Phosphor Icons -->
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3">
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#6d28d9">
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="particles"></div>
+    <!-- Particle Background -->
+    <canvas id="particle-canvas"></canvas>
     
     <!-- Navigation -->
     <nav class="glass-nav">
         <div class="container">
-            <a href="#" class="logo">
-                <span class="gradient-text">ULTRA</span>
+            <a href="/" class="logo">
+                <img src="assets/images/logo.svg" alt="NOVA" width="120" height="40">
             </a>
+            
             <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#commands">Commands</a>
-                <a href="#premium">Premium</a>
-                <a href="https://docs.ultrabot.gg">Docs</a>
+                <a href="#features" class="nav-link">
+                    <span class="nav-link-content">Features</span>
+                    <span class="nav-link-underline"></span>
+                </a>
+                <a href="#commands" class="nav-link">
+                    <span class="nav-link-content">Commands</span>
+                    <span class="nav-link-underline"></span>
+                </a>
+                <a href="#stats" class="nav-link">
+                    <span class="nav-link-content">Stats</span>
+                    <span class="nav-link-underline"></span>
+                </a>
+                <a href="https://docs.novamusic.gg" class="nav-link">
+                    <span class="nav-link-content">Docs</span>
+                    <span class="nav-link-underline"></span>
+                </a>
             </div>
+            
             <div class="nav-actions">
                 <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">
                     <i class="ph ph-moon"></i>
                 </button>
+                
                 <a href="/invite" class="btn btn-primary" id="invite-btn">
                     <i class="ph ph-discord-logo"></i>
-                    Invite
+                    <span>Invite Bot</span>
                 </a>
+                
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
+                    <i class="ph ph-list"></i>
+                </button>
             </div>
         </div>
     </nav>
-
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="/" class="logo">
+                <img src="assets/images/logo.svg" alt="NOVA" width="120" height="40">
+            </a>
+            <button class="close-menu-btn" id="close-menu-btn">
+                <i class="ph ph-x"></i>
+            </button>
+        </div>
+        <div class="mobile-menu-links">
+            <a href="#features" class="mobile-nav-link">Features</a>
+            <a href="#commands" class="mobile-nav-link">Commands</a>
+            <a href="#stats" class="mobile-nav-link">Stats</a>
+            <a href="https://docs.novamusic.gg" class="mobile-nav-link">Docs</a>
+            <a href="/invite" class="btn btn-primary mobile-invite-btn">
+                <i class="ph ph-discord-logo"></i>
+                Invite Bot
+            </a>
+        </div>
+    </div>
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content fade-in">
-                <h1>
-                    <span class="gradient-text">ULTRA</span> Music Experience
-                </h1>
-                <p class="hero-subtitle">
-                    Premium quality Discord music bot with crystal clear audio, advanced filters, and seamless platform integration
-                </p>
-                <div class="hero-actions">
-                    <a href="/invite" class="btn btn-lg btn-primary">
-                        <i class="ph ph-discord-logo"></i>
-                        Add to Discord
-                    </a>
-                    <a href="#features" class="btn btn-lg btn-secondary">
-                        <i class="ph ph-sparkle"></i>
-                        Explore Features
-                    </a>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="gradient-text">NOVA</span> Music Bot
+                    </h1>
+                    <p class="hero-subtitle">
+                        High quality Discord music bot with crystal clear audio 
+                        and advanced features
+                    </p>
+                    <div class="hero-actions">
+                        <a href="/invite" class="btn btn-lg btn-primary">
+                            <i class="ph ph-discord-logo"></i>
+                            <span>Add to Discord</span>
+                        </a>
+                        <a href="#features" class="btn btn-lg btn-secondary">
+                            <i class="ph ph-sparkle"></i>
+                            <span>View Features</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-value" id="server-count">10,000+</div>
+                        <div class="stat-label">Servers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="user-count">5M+</div>
+                        <div class="stat-label">Users</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="song-count">50M+</div>
+                        <div class="stat-label">Songs Played</div>
+                    </div>
                 </div>
             </div>
-            <div class="hero-media fade-in delay-1">
+            
+            <div class="hero-media">
                 <div class="mockup-wrapper">
-                    <img src="assets/bot-preview.webp" alt="ULTRA Bot Interface" class="bot-mockup">
-                    <div class="mockup-overlay"></div>
+                    <div class="mockup-screen">
+                        <img src="assets/images/bot-interface.webp" alt="NOVA Bot Interface" class="bot-mockup">
+                        <div class="mockup-frame"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- Features Section -->
     <section class="features" id="features">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2 class="section-title">Premium Features</h2>
-                <p class="section-subtitle">Everything you need for the ultimate music experience</p>
+            <div class="section-header">
+                <h2 class="section-title">Features</h2>
+                <p class="section-subtitle">Everything you need for great music experience</p>
             </div>
+            
             <div class="features-grid" id="features-container">
-                <!-- Features loaded via JS -->
+                <!-- Features loaded from features.js -->
             </div>
         </div>
     </section>
-
+    
     <!-- Commands Section -->
     <section class="commands" id="commands">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2 class="section-title">Bot Commands</h2>
-                <p class="section-subtitle">Full control at your fingertips</p>
+            <div class="section-header">
+                <h2 class="section-title">Commands</h2>
+                <p class="section-subtitle">Control your music with ease</p>
+                
                 <div class="command-search">
                     <input type="text" id="command-search" placeholder="Search commands...">
                     <i class="ph ph-magnifying-glass"></i>
                 </div>
             </div>
+            
             <div class="commands-container" id="commands-container">
-                <!-- Commands loaded via JS -->
+                <!-- Commands loaded from commands.js -->
             </div>
         </div>
     </section>
-
-    <!-- Premium Section -->
-    <section class="premium" id="premium">
+    
+    <!-- Stats Section -->
+    <section class="stats" id="stats">
         <div class="container">
-            <div class="premium-card glass-card fade-in">
-                <div class="premium-content">
-                    <h2 class="premium-title">ULTRA <span>Premium</span></h2>
-                    <p class="premium-subtitle">
-                        Unlock the full potential with premium features
-                    </p>
-                    <ul class="premium-features">
-                        <li><i class="ph ph-check-circle"></i> 320kbps audio quality</li>
-                        <li><i class="ph ph-check-circle"></i> Advanced audio effects</li>
-                        <li><i class="ph ph-check-circle"></i> 24/7 music without limits</li>
-                        <li><i class="ph ph-check-circle"></i> Priority support</li>
-                    </ul>
-                    <a href="/premium" class="btn btn-lg btn-premium">
-                        <i class="ph ph-crown"></i>
-                        Get Premium
-                    </a>
+            <div class="section-header">
+                <h2 class="section-title">Stats</h2>
+                <p class="section-subtitle">Trusted by thousands of servers</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="ph ph-discord-logo"></i>
+                    </div>
+                    <div class="stat-data">
+                        <div class="stat-number" id="live-servers">10,000+</div>
+                        <div class="stat-label">Active Servers</div>
+                    </div>
                 </div>
-                <div class="premium-image">
-                    <img src="assets/premium-badge.webp" alt="ULTRA Premium" width="400">
+                
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="ph ph-users"></i>
+                    </div>
+                    <div class="stat-data">
+                        <div class="stat-number" id="live-users">5M+</div>
+                        <div class="stat-label">Monthly Users</div>
+                    </div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="ph ph-music-notes"></i>
+                    </div>
+                    <div class="stat-data">
+                        <div class="stat-number" id="live-songs">50M+</div>
+                        <div class="stat-label">Songs Played</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
+    
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-card">
+                <h2 class="cta-title">Ready to add music to your server?</h2>
+                <p class="cta-subtitle">
+                    Join thousands of servers using NOVA Music today
+                </p>
+                <a href="/invite" class="btn btn-lg btn-primary">
+                    <i class="ph ph-discord-logo"></i>
+                    <span>Add to Discord</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="#" class="logo">
-                        <span class="gradient-text">ULTRA</span>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="/" class="footer-logo">
+                        <img src="assets/images/logo.svg" alt="NOVA" width="120" height="40">
                     </a>
-                    <p>The most advanced Discord music bot</p>
+                    <p class="footer-text">
+                        High quality Discord music bot with crystal clear audio.
+                    </p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Discord">
+                            <i class="ph ph-discord-logo"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="ph ph-twitter-logo"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <i class="ph ph-github-logo"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="footer-links">
-                    <a href="#features">Features</a>
-                    <a href="#commands">Commands</a>
-                    <a href="#premium">Premium</a>
-                    <a href="/docs">Documentation</a>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="/docs">Documentation</a></li>
+                        <li><a href="/status">Status</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">About</h3>
+                    <ul class="footer-links">
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                    </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2023 ULTRA Music Bot. All rights reserved.</p>
+                <p class="copyright">&copy; 2023 NOVA Music. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Scripts -->
+    <script src="js/particles.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/features.js"></script>
+    <script src="js/commands.js"></script>
+    <script src="js/stats.js"></script>
 </body>
 </html>
