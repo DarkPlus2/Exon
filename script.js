@@ -10,11 +10,47 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Command search functionality
     setupCommandSearch();
+    
+    // Mobile sidebar functionality
+    setupMobileMenu();
 });
+
+function setupMobileMenu() {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const sidebar = document.getElementById('mobile-sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    const closeBtn = document.getElementById('close-sidebar');
+    
+    mobileMenuBtn.addEventListener('click', function() {
+        sidebar.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+    
+    closeBtn.addEventListener('click', function() {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+    
+    overlay.addEventListener('click', function() {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+    
+    // Close sidebar when clicking on links
+    document.querySelectorAll('.sidebar-links a').forEach(link => {
+        link.addEventListener('click', function() {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+}
 
 function loadBotStats() {
     // These would normally come from an API
-    // For demo purposes, we'll use static values
     document.getElementById('guilds-count').textContent = '1,250';
     document.getElementById('users-count').textContent = '250,000';
     document.getElementById('songs-count').textContent = '1.5M';
@@ -25,11 +61,9 @@ function loadCommands() {
     const commandsContainer = document.getElementById('commands-container');
     commandsContainer.innerHTML = '';
     
-    // Get commands from config
     const commands = window.botCommands;
-    
-    // Group commands by category
     const categories = {};
+    
     commands.forEach(command => {
         if (!categories[command.category]) {
             categories[command.category] = [];
@@ -37,14 +71,12 @@ function loadCommands() {
         categories[command.category].push(command);
     });
     
-    // Create sections for each category
     for (const [category, categoryCommands] of Object.entries(categories)) {
         const categoryTitle = document.createElement('h3');
         categoryTitle.className = 'category-title';
         categoryTitle.textContent = category;
         commandsContainer.appendChild(categoryTitle);
         
-        // Create grid for commands in this category
         const categoryGrid = document.createElement('div');
         categoryGrid.className = 'commands-grid';
         
@@ -76,31 +108,39 @@ function loadCommands() {
 }
 
 function setupEventListeners() {
-    // Invite button
-    document.getElementById('invite-btn').addEventListener('click', function(e) {
+    // Desktop invite buttons
+    document.getElementById('desktop-invite-btn').addEventListener('click', function(e) {
         e.preventDefault();
         alert('Redirecting to Discord invite link...');
-        // window.location.href = 'https://discord.com/oauth2/authorize...';
     });
     
     document.getElementById('hero-invite-btn').addEventListener('click', function(e) {
         e.preventDefault();
         alert('Redirecting to Discord invite link...');
-        // window.location.href = 'https://discord.com/oauth2/authorize...';
     });
     
-    // Support button
-    document.getElementById('support-btn').addEventListener('click', function(e) {
+    // Mobile invite button
+    document.getElementById('sidebar-invite-btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        alert('Redirecting to Discord invite link...');
+    });
+    
+    // Desktop support button
+    document.getElementById('desktop-support-btn').addEventListener('click', function(e) {
         e.preventDefault();
         alert('Redirecting to support server...');
-        // window.location.href = 'https://discord.gg/...';
+    });
+    
+    // Mobile support button
+    document.getElementById('sidebar-support-btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        alert('Redirecting to support server...');
     });
     
     // Premium button
     document.getElementById('premium-btn').addEventListener('click', function(e) {
         e.preventDefault();
         alert('Redirecting to premium page...');
-        // window.location.href = 'https://patreon.com/...';
     });
 }
 
@@ -122,7 +162,6 @@ function setupCommandSearch() {
             }
         });
         
-        // Hide/show category titles based on visible commands
         document.querySelectorAll('.category-title').forEach(title => {
             const categoryGrid = title.nextElementSibling;
             const visibleCommands = categoryGrid.querySelectorAll('.command-card[style="display: block;"]').length;
