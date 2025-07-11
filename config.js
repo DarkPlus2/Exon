@@ -1,12 +1,13 @@
-// Bot configuration and commands data
 window.botCommands = [
+    // Music Commands
     {
         name: 'play',
         description: 'Plays a song from YouTube, Spotify, SoundCloud, etc.',
         category: 'Music',
-        aliases: ['p'],
+        aliases: ['p', 'playnow'],
         usage: '!play <song name or URL>',
-        icon: 'play'
+        icon: 'play',
+        permissions: []
     },
     {
         name: 'skip',
@@ -14,15 +15,17 @@ window.botCommands = [
         category: 'Music',
         aliases: ['s', 'next'],
         usage: '!skip',
-        icon: 'forward'
+        icon: 'forward',
+        permissions: []
     },
     {
         name: 'stop',
         description: 'Stops the music and clears the queue',
         category: 'Music',
-        aliases: ['leave', 'disconnect'],
+        aliases: ['leave', 'disconnect', 'dc'],
         usage: '!stop',
-        icon: 'stop'
+        icon: 'stop',
+        permissions: ['MANAGE_CHANNELS']
     },
     {
         name: 'pause',
@@ -30,31 +33,35 @@ window.botCommands = [
         category: 'Music',
         aliases: [],
         usage: '!pause',
-        icon: 'pause'
+        icon: 'pause',
+        permissions: []
     },
     {
         name: 'resume',
         description: 'Resumes a paused song',
         category: 'Music',
-        aliases: ['continue'],
+        aliases: ['continue', 'unpause'],
         usage: '!resume',
-        icon: 'play'
+        icon: 'play',
+        permissions: []
     },
     {
         name: 'queue',
         description: 'Shows the current queue of songs',
         category: 'Music',
-        aliases: ['q'],
-        usage: '!queue',
-        icon: 'list'
+        aliases: ['q', 'list'],
+        usage: '!queue [page]',
+        icon: 'list',
+        permissions: []
     },
     {
         name: 'nowplaying',
         description: 'Shows information about the currently playing song',
         category: 'Music',
-        aliases: ['np', 'current'],
+        aliases: ['np', 'current', 'now'],
         usage: '!nowplaying',
-        icon: 'music'
+        icon: 'music',
+        permissions: []
     },
     {
         name: 'volume',
@@ -62,7 +69,8 @@ window.botCommands = [
         category: 'Music',
         aliases: ['vol'],
         usage: '!volume <number>',
-        icon: 'volume-up'
+        icon: 'volume-up',
+        permissions: ['MANAGE_CHANNELS']
     },
     {
         name: 'loop',
@@ -70,15 +78,17 @@ window.botCommands = [
         category: 'Music',
         aliases: ['repeat'],
         usage: '!loop [song/queue/off]',
-        icon: 'redo'
+        icon: 'redo',
+        permissions: []
     },
     {
         name: 'shuffle',
         description: 'Shuffles the current queue',
         category: 'Music',
-        aliases: ['mix'],
+        aliases: ['mix', 'random'],
         usage: '!shuffle',
-        icon: 'random'
+        icon: 'random',
+        permissions: []
     },
     {
         name: 'search',
@@ -86,7 +96,8 @@ window.botCommands = [
         category: 'Music',
         aliases: ['find'],
         usage: '!search <song name>',
-        icon: 'search'
+        icon: 'search',
+        permissions: []
     },
     {
         name: 'lyrics',
@@ -94,15 +105,19 @@ window.botCommands = [
         category: 'Music',
         aliases: ['lyric'],
         usage: '!lyrics [song name]',
-        icon: 'quote-right'
+        icon: 'quote-right',
+        permissions: []
     },
+    
+    // Filter Commands
     {
         name: 'bassboost',
         description: 'Applies bass boost effect to the music',
         category: 'Filters',
         aliases: ['bass'],
         usage: '!bassboost [low/medium/high/off]',
-        icon: 'sliders-h'
+        icon: 'sliders-h',
+        permissions: []
     },
     {
         name: 'nightcore',
@@ -110,7 +125,8 @@ window.botCommands = [
         category: 'Filters',
         aliases: ['nc'],
         usage: '!nightcore [on/off]',
-        icon: 'sliders-h'
+        icon: 'sliders-h',
+        permissions: []
     },
     {
         name: 'vaporwave',
@@ -118,7 +134,8 @@ window.botCommands = [
         category: 'Filters',
         aliases: ['vw'],
         usage: '!vaporwave [on/off]',
-        icon: 'sliders-h'
+        icon: 'sliders-h',
+        permissions: []
     },
     {
         name: '8d',
@@ -126,15 +143,84 @@ window.botCommands = [
         category: 'Filters',
         aliases: [],
         usage: '!8d [on/off]',
-        icon: 'sliders-h'
+        icon: 'sliders-h',
+        permissions: []
     },
+    {
+        name: 'speed',
+        description: 'Changes playback speed (0.5-2.0)',
+        category: 'Filters',
+        aliases: ['tempo'],
+        usage: '!speed <value>',
+        icon: 'sliders-h',
+        permissions: []
+    },
+    {
+        name: 'pitch',
+        description: 'Changes pitch of the music (0.5-2.0)',
+        category: 'Filters',
+        aliases: [],
+        usage: '!pitch <value>',
+        icon: 'sliders-h',
+        permissions: []
+    },
+    {
+        name: 'reset',
+        description: 'Resets all audio filters to default',
+        category: 'Filters',
+        aliases: ['normal', 'default'],
+        usage: '!reset',
+        icon: 'undo',
+        permissions: []
+    },
+    
+    // Playlist Commands
+    {
+        name: 'save',
+        description: 'Saves the current queue as a playlist',
+        category: 'Playlists',
+        aliases: ['savequeue'],
+        usage: '!save <playlist name>',
+        icon: 'save',
+        permissions: []
+    },
+    {
+        name: 'load',
+        description: 'Loads a saved playlist',
+        category: 'Playlists',
+        aliases: ['open', 'get'],
+        usage: '!load <playlist name>',
+        icon: 'folder-open',
+        permissions: []
+    },
+    {
+        name: 'playlists',
+        description: 'Lists all saved playlists',
+        category: 'Playlists',
+        aliases: ['listplaylists'],
+        usage: '!playlists',
+        icon: 'list-ol',
+        permissions: []
+    },
+    {
+        name: 'delete',
+        description: 'Deletes a saved playlist',
+        category: 'Playlists',
+        aliases: ['remove'],
+        usage: '!delete <playlist name>',
+        icon: 'trash',
+        permissions: ['MANAGE_GUILD']
+    },
+    
+    // Utility Commands
     {
         name: 'prefix',
         description: 'Sets or shows the current prefix for commands',
-        category: 'Settings',
+        category: 'Utility',
         aliases: [],
         usage: '!prefix [new prefix]',
-        icon: 'hashtag'
+        icon: 'hashtag',
+        permissions: ['MANAGE_GUILD']
     },
     {
         name: 'help',
@@ -142,7 +228,8 @@ window.botCommands = [
         category: 'Utility',
         aliases: ['h', 'commands'],
         usage: '!help [command name]',
-        icon: 'question-circle'
+        icon: 'question-circle',
+        permissions: []
     },
     {
         name: 'ping',
@@ -150,7 +237,8 @@ window.botCommands = [
         category: 'Utility',
         aliases: [],
         usage: '!ping',
-        icon: 'tachometer-alt'
+        icon: 'tachometer-alt',
+        permissions: []
     },
     {
         name: 'stats',
@@ -158,6 +246,25 @@ window.botCommands = [
         category: 'Utility',
         aliases: ['info', 'about'],
         usage: '!stats',
-        icon: 'chart-bar'
+        icon: 'chart-bar',
+        permissions: []
+    },
+    {
+        name: 'invite',
+        description: 'Sends the bot invite link',
+        category: 'Utility',
+        aliases: [],
+        usage: '!invite',
+        icon: 'robot',
+        permissions: []
+    },
+    {
+        name: 'support',
+        description: 'Sends the support server invite',
+        category: 'Utility',
+        aliases: [],
+        usage: '!support',
+        icon: 'headset',
+        permissions: []
     }
 ];
