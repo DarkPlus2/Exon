@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EXON | The Ultimate Discord Music Experience</title>
-    <meta name="description" content="The most advanced Discord music bot with crystal clear audio, premium features, and unparalleled performance">
+    <title>EXON | Premium Discord Music Bot</title>
+    <meta name="description" content="The most advanced purple-themed Discord music bot with crystal clear audio and premium features">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <style>
         :root {
-            --primary: #5865F2;
-            --primary-dark: #4752C4;
-            --secondary: #57F287;
-            --dark: #23272A;
-            --darker: #1e2124;
-            --light: #FFFFFF;
-            --gray: #99AAB5;
-            --premium: #FEE75C;
-            --premium-dark: #DDBB00;
+            --primary: #8a2be2;
+            --primary-dark: #6a1b9a;
+            --primary-light: #9c4dff;
+            --secondary: #ff6bff;
+            --dark: #1a0526;
+            --darker: #12021b;
+            --light: #f0e6ff;
+            --gray: #b39ddb;
+            --premium: #ffcc00;
+            --premium-dark: #ffaa00;
         }
         
         * {
@@ -44,19 +44,20 @@
         
         /* Header Styles */
         .desktop-header {
-            background-color: rgba(30, 33, 36, 0.9);
+            background-color: rgba(26, 5, 38, 0.95);
             backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             z-index: 1000;
             padding: 15px 0;
-            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
+            border-bottom: 1px solid var(--primary-light);
         }
         
         .desktop-header.scrolled {
             padding: 10px 0;
-            background-color: rgba(30, 33, 36, 0.95);
+            background-color: rgba(26, 5, 38, 0.98);
         }
         
         .desktop-nav {
@@ -69,13 +70,16 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.8rem;
+            font-weight: 800;
             color: var(--light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .logo i {
-            color: var(--primary);
+            color: var(--secondary);
+            font-size: 1.5rem;
         }
         
         .nav-links {
@@ -87,14 +91,17 @@
         .nav-links a {
             color: var(--light);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 1.1rem;
             transition: all 0.3s ease;
             position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.95rem;
         }
         
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--secondary);
         }
         
         .nav-links a::after {
@@ -104,7 +111,7 @@
             height: 2px;
             bottom: -5px;
             left: 0;
-            background-color: var(--primary);
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
             transition: width 0.3s ease;
         }
         
@@ -130,50 +137,56 @@
             cursor: pointer;
             border: none;
             font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .primary-btn {
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: var(--light);
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
         }
         
         .primary-btn:hover {
-            background-color: var(--primary-dark);
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(88, 101, 242, 0.3);
+            box-shadow: 0 8px 25px rgba(138, 43, 226, 0.6);
         }
         
         .secondary-btn {
             background-color: transparent;
             color: var(--light);
-            border: 2px solid var(--gray);
+            border: 2px solid var(--primary-light);
         }
         
         .secondary-btn:hover {
-            border-color: var(--light);
+            border-color: var(--secondary);
             transform: translateY(-2px);
+            background-color: rgba(138, 43, 226, 0.1);
         }
         
         .support-btn {
-            background-color: var(--secondary);
+            background: linear-gradient(135deg, var(--secondary), #ff3dff);
             color: var(--darker);
+            box-shadow: 0 4px 15px rgba(255, 107, 255, 0.4);
         }
         
         .support-btn:hover {
-            background-color: #4ad175;
+            background: linear-gradient(135deg, #ff8aff, var(--secondary));
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(87, 242, 135, 0.3);
+            box-shadow: 0 8px 25px rgba(255, 107, 255, 0.6);
         }
         
         .premium-btn {
-            background-color: var(--premium);
+            background: linear-gradient(135deg, var(--premium), var(--premium-dark));
             color: var(--darker);
+            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4);
         }
         
         .premium-btn:hover {
-            background-color: var(--premium-dark);
+            background: linear-gradient(135deg, #ffdd33, var(--premium));
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(254, 231, 92, 0.3);
+            box-shadow: 0 8px 25px rgba(255, 204, 0, 0.6);
         }
         
         /* Mobile Menu */
@@ -222,7 +235,8 @@
             transition: right 0.3s ease;
             display: flex;
             flex-direction: column;
-            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
+            border-left: 1px solid var(--primary-light);
         }
         
         .mobile-sidebar.active {
@@ -234,7 +248,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid var(--primary-light);
         }
         
         .close-btn {
@@ -247,7 +261,7 @@
         }
         
         .close-btn:hover {
-            color: var(--primary);
+            color: var(--secondary);
             transform: rotate(90deg);
         }
         
@@ -274,16 +288,20 @@
             padding: 12px 15px;
             border-radius: 8px;
             transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.95rem;
         }
         
         .sidebar-links a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--primary);
+            background: linear-gradient(90deg, rgba(138, 43, 226, 0.2), transparent);
+            color: var(--secondary);
         }
         
         .sidebar-links i {
             width: 20px;
             text-align: center;
+            color: var(--secondary);
         }
         
         .sidebar-footer {
@@ -291,7 +309,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid var(--primary-light);
         }
         
         .sidebar-overlay {
@@ -300,7 +318,7 @@
             left: 0;
             width: 100%;
             height: 100vh;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.8);
             z-index: 1001;
             opacity: 0;
             visibility: hidden;
@@ -327,7 +345,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(88, 101, 242, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.15) 0%, transparent 70%);
             z-index: 0;
         }
         
@@ -342,9 +360,10 @@
             font-weight: 800;
             line-height: 1.2;
             margin-bottom: 20px;
-            background: linear-gradient(to right, var(--light), var(--primary));
+            background: linear-gradient(to right, var(--light), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(138, 43, 226, 0.3);
         }
         
         .subtitle {
@@ -374,12 +393,19 @@
             width: 100%;
             height: auto;
             border-radius: 15px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            border: 2px solid var(--primary-light);
         }
         
         .hero-stats {
             display: flex;
             gap: 40px;
+            background: rgba(138, 43, 226, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid var(--primary-light);
+            max-width: fit-content;
         }
         
         .stat-item {
@@ -390,13 +416,13 @@
         
         .stat-item i {
             font-size: 2.5rem;
-            color: var(--primary);
+            color: var(--secondary);
         }
         
         .stat-number {
             font-size: 2rem;
             font-weight: 700;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            background: linear-gradient(to right, var(--secondary), var(--primary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -419,9 +445,10 @@
             font-weight: 800;
             text-align: center;
             margin-bottom: 15px;
-            background: linear-gradient(to right, var(--light), var(--primary));
+            background: linear-gradient(to right, var(--light), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(138, 43, 226, 0.3);
         }
         
         .section-subtitle {
@@ -436,33 +463,50 @@
         /* Features Section */
         .features {
             background-color: var(--darker);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(138, 43, 226, 0.03)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+            background-size: cover;
+            z-index: 0;
         }
         
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
+            position: relative;
+            z-index: 1;
         }
         
         .feature-card {
-            background-color: rgba(255, 255, 255, 0.05);
+            background: rgba(26, 5, 38, 0.7);
             border-radius: 15px;
             padding: 30px;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--primary-light);
+            backdrop-filter: blur(5px);
         }
         
         .feature-card:hover {
             transform: translateY(-10px);
-            background-color: rgba(88, 101, 242, 0.1);
-            border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.2);
+            background: rgba(138, 43, 226, 0.2);
+            border-color: var(--secondary);
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.3);
         }
         
         .feature-icon {
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -470,6 +514,7 @@
             margin-bottom: 20px;
             font-size: 1.8rem;
             color: var(--light);
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
         }
         
         .feature-card h3 {
@@ -486,12 +531,27 @@
         /* Commands Section */
         .commands {
             background-color: var(--dark);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .commands::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255, 107, 255, 0.03)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+            background-size: cover;
+            z-index: 0;
         }
         
         .search-box {
             position: relative;
             max-width: 600px;
             margin: 0 auto 40px;
+            z-index: 1;
         }
         
         .search-box input {
@@ -499,16 +559,18 @@
             padding: 15px 20px 15px 50px;
             border-radius: 50px;
             border: none;
-            background-color: rgba(255, 255, 255, 0.1);
+            background: rgba(26, 5, 38, 0.7);
             color: var(--light);
             font-size: 1.1rem;
             transition: all 0.3s ease;
+            border: 1px solid var(--primary-light);
+            backdrop-filter: blur(5px);
         }
         
         .search-box input:focus {
             outline: none;
-            box-shadow: 0 0 0 3px rgba(88, 101, 242, 0.3);
-            background-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.3);
+            background: rgba(138, 43, 226, 0.2);
         }
         
         .search-box i {
@@ -516,27 +578,31 @@
             left: 20px;
             top: 50%;
             transform: translateY(-50%);
-            color: var(--gray);
+            color: var(--secondary);
         }
         
         .commands-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
+            position: relative;
+            z-index: 1;
         }
         
         .command-card {
-            background-color: rgba(255, 255, 255, 0.05);
+            background: rgba(26, 5, 38, 0.7);
             border-radius: 10px;
             padding: 20px;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--primary-light);
+            backdrop-filter: blur(5px);
         }
         
         .command-card:hover {
             transform: translateY(-5px);
-            background-color: rgba(87, 242, 135, 0.1);
+            background: rgba(255, 107, 255, 0.1);
             border-color: var(--secondary);
+            box-shadow: 0 5px 20px rgba(255, 107, 255, 0.2);
         }
         
         .command-header {
@@ -553,7 +619,7 @@
         }
         
         .command-category {
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: var(--light);
             padding: 3px 10px;
             border-radius: 50px;
@@ -568,7 +634,7 @@
         }
         
         .command-usage {
-            background-color: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.3);
             padding: 10px;
             border-radius: 5px;
             font-family: monospace;
@@ -576,6 +642,7 @@
             font-size: 0.9rem;
             margin-bottom: 10px;
             word-break: break-all;
+            border-left: 3px solid var(--secondary);
         }
         
         .command-aliases {
@@ -586,32 +653,49 @@
         }
         
         .command-aliases span {
-            background-color: rgba(255, 255, 255, 0.1);
+            background: rgba(138, 43, 226, 0.2);
             padding: 3px 8px;
             border-radius: 50px;
             color: var(--gray);
+            border: 1px solid var(--primary-light);
         }
         
         /* Premium Section */
         .premium {
             background-color: var(--darker);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255, 204, 0, 0.03)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+            background-size: cover;
+            z-index: 0;
         }
         
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
         
         .pricing-card {
-            background-color: rgba(255, 255, 255, 0.05);
+            background: rgba(26, 5, 38, 0.7);
             border-radius: 15px;
             padding: 30px;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
+            border: 1px solid var(--primary-light);
+            backdrop-filter: blur(5px);
         }
         
         .pricing-card:hover {
@@ -621,14 +705,17 @@
         
         .pricing-card.featured {
             border-color: var(--premium);
-            background-color: rgba(254, 231, 92, 0.05);
+            background: rgba(255, 204, 0, 0.1);
+            position: relative;
+            overflow: hidden;
         }
         
-        .popular-badge {
+        .pricing-card.featured::before {
+            content: 'RECOMMENDED';
             position: absolute;
-            top: 15px;
+            top: 20px;
             right: -30px;
-            background-color: var(--premium);
+            background: linear-gradient(135deg, var(--premium), var(--premium-dark));
             color: var(--darker);
             padding: 5px 30px;
             font-weight: 700;
@@ -636,12 +723,13 @@
             font-size: 0.8rem;
             width: 120px;
             text-align: center;
+            box-shadow: 0 2px 10px rgba(255, 204, 0, 0.3);
         }
         
         .pricing-header {
             margin-bottom: 25px;
             padding-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid var(--primary-light);
         }
         
         .pricing-header h3 {
@@ -687,12 +775,28 @@
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             text-align: center;
             padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255, 255, 255, 0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+            background-size: cover;
+            z-index: 0;
         }
         
         .cta h2 {
             font-size: 2.8rem;
             margin-bottom: 20px;
             color: var(--light);
+            position: relative;
+            z-index: 1;
         }
         
         .cta p {
@@ -702,79 +806,51 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            position: relative;
+            z-index: 1;
         }
         
         .cta-buttons {
             display: flex;
             justify-content: center;
             gap: 20px;
-        }
-        
-        /* Testimonials Section */
-        .testimonials {
-            background-color: var(--dark);
-        }
-        
-        .testimonials-slider {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .testimonial-card {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 30px;
-            margin: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .testimonial-content {
-            font-size: 1.1rem;
-            color: var(--light);
-            font-style: italic;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        
-        .author-info h4 {
-            color: var(--light);
-            margin-bottom: 5px;
-        }
-        
-        .author-info p {
-            color: var(--gray);
-            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
         }
         
         /* FAQ Section */
         .faq {
-            background-color: var(--darker);
+            background-color: var(--dark);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .faq::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(138, 43, 226, 0.03)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+            background-size: cover;
+            z-index: 0;
         }
         
         .faq-container {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
         
         .faq-item {
             margin-bottom: 15px;
             border-radius: 10px;
             overflow: hidden;
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(26, 5, 38, 0.7);
+            border: 1px solid var(--primary-light);
+            backdrop-filter: blur(5px);
         }
         
         .faq-question {
@@ -789,11 +865,12 @@
         }
         
         .faq-question:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background: rgba(138, 43, 226, 0.2);
         }
         
         .faq-question i {
             transition: transform 0.3s ease;
+            color: var(--secondary);
         }
         
         .faq-item.active .faq-question i {
@@ -814,101 +891,24 @@
             max-height: 500px;
         }
         
-        /* Dashboard Preview Section */
-        .dashboard {
-            background-color: var(--dark);
-        }
-        
-        .dashboard-container {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-        }
-        
-        .dashboard-image {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        /* Team Section */
-        .team {
-            background-color: var(--darker);
-        }
-        
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .team-member {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            overflow: hidden;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .team-member:hover {
-            transform: translateY(-10px);
-            background-color: rgba(88, 101, 242, 0.1);
-            border-color: var(--primary);
-        }
-        
-        .member-avatar {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-        
-        .member-info {
-            padding: 20px;
-        }
-        
-        .member-name {
-            font-size: 1.3rem;
-            margin-bottom: 5px;
-            color: var(--light);
-        }
-        
-        .member-role {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        
-        .member-bio {
-            color: var(--gray);
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-        
-        .member-social {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-        
-        .member-social a {
-            color: var(--gray);
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-        
-        .member-social a:hover {
-            color: var(--primary);
-        }
-        
         /* Footer */
         footer {
             background-color: var(--darker);
             padding: 80px 0 0;
+            position: relative;
+            border-top: 1px solid var(--primary-light);
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(138, 43, 226, 0.03)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+            background-size: cover;
+            z-index: 0;
         }
         
         .footer-content {
@@ -916,6 +916,8 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
         }
         
         .footer-brand {
@@ -941,18 +943,20 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.05);
+            background: rgba(138, 43, 226, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--gray);
             transition: all 0.3s ease;
+            border: 1px solid var(--primary-light);
         }
         
         .social-links a:hover {
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: var(--light);
             transform: translateY(-3px);
+            border-color: var(--secondary);
         }
         
         .footer-links h3 {
@@ -970,7 +974,7 @@
             left: 0;
             width: 50px;
             height: 3px;
-            background-color: var(--primary);
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
         
         .footer-links ul {
@@ -988,7 +992,7 @@
         }
         
         .footer-links a:hover {
-            color: var(--primary);
+            color: var(--secondary);
             padding-left: 5px;
         }
         
@@ -1007,7 +1011,7 @@
             left: 0;
             width: 50px;
             height: 3px;
-            background-color: var(--primary);
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
         
         .footer-newsletter p {
@@ -1026,13 +1030,15 @@
             padding: 12px 15px;
             border-radius: 8px;
             border: none;
-            background-color: rgba(255, 255, 255, 0.1);
+            background: rgba(26, 5, 38, 0.7);
             color: var(--light);
+            border: 1px solid var(--primary-light);
         }
         
         .newsletter-form input:focus {
             outline: none;
-            background-color: rgba(255, 255, 255, 0.15);
+            background: rgba(138, 43, 226, 0.2);
+            border-color: var(--secondary);
         }
         
         .newsletter-form button {
@@ -1041,10 +1047,12 @@
         
         .footer-bottom {
             padding: 30px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid var(--primary-light);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
         
         .footer-bottom p {
@@ -1065,7 +1073,7 @@
         }
         
         .legal-links a:hover {
-            color: var(--primary);
+            color: var(--secondary);
         }
         
         /* Back to Top Button */
@@ -1076,7 +1084,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: var(--light);
             display: flex;
             align-items: center;
@@ -1086,7 +1094,8 @@
             visibility: hidden;
             transition: all 0.3s ease;
             z-index: 999;
-            box-shadow: 0 5px 20px rgba(88, 101, 242, 0.3);
+            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.5);
+            border: none;
         }
         
         .back-to-top.active {
@@ -1095,8 +1104,9 @@
         }
         
         .back-to-top:hover {
-            background-color: var(--primary-dark);
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
             transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(138, 43, 226, 0.7);
         }
         
         /* Responsive Styles */
@@ -1135,7 +1145,7 @@
             }
             
             .hero-stats {
-                justify-content: center;
+                margin: 0 auto;
             }
             
             .desktop-nav .nav-links {
@@ -1144,6 +1154,10 @@
             
             .mobile-menu-btn {
                 display: flex;
+            }
+            
+            .nav-buttons {
+                display: none;
             }
         }
         
@@ -1181,11 +1195,15 @@
             .cta h2 {
                 font-size: 2.3rem;
             }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
         }
         
         @media (max-width: 576px) {
             .hero {
-                padding: 120px 0 60px;
+                padding: 130px 0 60px;
             }
             
             .hero h2 {
@@ -1208,8 +1226,14 @@
                 width: 280px;
             }
             
-            .footer-content {
-                grid-template-columns: 1fr;
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+                padding: 15px;
+            }
+            
+            .stat-item {
+                justify-content: center;
             }
             
             .footer-bottom {
@@ -1220,6 +1244,11 @@
             
             .legal-links {
                 justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
             }
         }
     </style>
@@ -1249,9 +1278,7 @@
                 <li><a href="#features" class="nav-link"><i class="fas fa-star"></i> <span>Features</span></a></li>
                 <li><a href="#commands" class="nav-link"><i class="fas fa-terminal"></i> <span>Commands</span></a></li>
                 <li><a href="#premium" class="nav-link"><i class="fas fa-crown"></i> <span>Premium</span></a></li>
-                <li><a href="#testimonials" class="nav-link"><i class="fas fa-quote-left"></i> <span>Testimonials</span></a></li>
                 <li><a href="#faq" class="nav-link"><i class="fas fa-question-circle"></i> <span>FAQ</span></a></li>
-                <li><a href="#team" class="nav-link"><i class="fas fa-users"></i> <span>Team</span></a></li>
             </ul>
         </nav>
         <div class="sidebar-footer">
@@ -1274,9 +1301,7 @@
                     <li><a href="#features">Features</a></li>
                     <li><a href="#commands">Commands</a></li>
                     <li><a href="#premium">Premium</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#team">Team</a></li>
                 </ul>
                 <div class="nav-buttons">
                     <a href="#" class="btn invite-btn" id="desktop-invite-btn"><i class="fas fa-plus"></i> Invite</a>
@@ -1290,8 +1315,8 @@
     <section class="hero" id="about">
         <div class="container">
             <div class="hero-content animate__animated animate__fadeInLeft">
-                <h2>Revolutionize Your Discord Music Experience</h2>
-                <p class="subtitle">EXON delivers crystal clear audio, advanced features, and seamless performance for your Discord server. Enjoy studio-quality music with the most powerful music bot available.</p>
+                <h2>Ultimate Purple-Themed Music Experience</h2>
+                <p class="subtitle">EXON delivers crystal clear audio with premium features in a beautiful purple theme. Elevate your Discord server with the most stylish music bot available.</p>
                 <div class="hero-buttons">
                     <a href="#" class="btn primary-btn" id="hero-invite-btn"><i class="fas fa-robot"></i> Add to Discord</a>
                     <a href="#commands" class="btn secondary-btn"><i class="fas fa-book"></i> View Commands</a>
@@ -1300,21 +1325,21 @@
                     <div class="stat-item">
                         <i class="fas fa-server"></i>
                         <div>
-                            <span class="stat-number" id="guilds-count">15,842</span>
+                            <span class="stat-number" id="guilds-count">25,000+</span>
                             <span class="stat-label">Servers</span>
                         </div>
                     </div>
                     <div class="stat-item">
                         <i class="fas fa-users"></i>
                         <div>
-                            <span class="stat-number" id="users-count">2.1M</span>
+                            <span class="stat-number" id="users-count">3.5M</span>
                             <span class="stat-label">Users</span>
                         </div>
                     </div>
                     <div class="stat-item">
                         <i class="fas fa-music"></i>
                         <div>
-                            <span class="stat-number" id="songs-count">58M</span>
+                            <span class="stat-number" id="songs-count">85M</span>
                             <span class="stat-label">Songs Played</span>
                         </div>
                     </div>
@@ -1329,8 +1354,8 @@
     <!-- Features Section -->
     <section class="features" id="features">
         <div class="container">
-            <h2 class="section-title animate__animated animate__fadeInUp">Unmatched Features</h2>
-            <p class="section-subtitle">EXON comes packed with everything you need for the ultimate music experience</p>
+            <h2 class="section-title animate__animated animate__fadeInUp">Premium Features</h2>
+            <p class="section-subtitle">Experience the best music bot with these incredible features</p>
             
             <div class="features-grid">
                 <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
@@ -1338,71 +1363,47 @@
                         <i class="fas fa-headphones-alt"></i>
                     </div>
                     <h3>Studio Quality Audio</h3>
-                    <p>Experience crystal clear 320kbps audio streaming with our premium audio processing technology that eliminates distortion and artifacts.</p>
+                    <p>Enjoy crystal clear 320kbps audio with our advanced audio processing technology that eliminates distortion and artifacts.</p>
                 </div>
                 
                 <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
                     <div class="feature-icon">
                         <i class="fas fa-plug"></i>
                     </div>
-                    <h3>20+ Music Sources</h3>
-                    <p>Supports YouTube, Spotify, SoundCloud, Apple Music, Deezer, Twitch, Bandcamp, and direct audio file links with automatic quality selection.</p>
+                    <h3>Multiple Sources</h3>
+                    <p>Supports YouTube, Spotify, SoundCloud, Apple Music, and more with automatic quality selection.</p>
                 </div>
                 
                 <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
                     <div class="feature-icon">
                         <i class="fas fa-sliders-h"></i>
                     </div>
-                    <h3>Professional Audio Filters</h3>
-                    <p>Bassboost, nightcore, vaporwave, 8D audio, karaoke, and 15+ other professional audio effects with customizable parameters.</p>
+                    <h3>Audio Filters</h3>
+                    <p>Bassboost, nightcore, vaporwave, 8D audio, and 15+ other professional audio effects.</p>
                 </div>
                 
                 <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
                     <div class="feature-icon">
                         <i class="fas fa-list-ol"></i>
                     </div>
-                    <h3>Advanced Queue System</h3>
-                    <p>Save unlimited playlists, shuffle, loop, queue management, priority queuing, and smart recommendations based on listening history.</p>
+                    <h3>Queue Management</h3>
+                    <p>Save unlimited playlists, shuffle, loop, and manage your queue with advanced controls.</p>
                 </div>
                 
                 <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.5s">
                     <div class="feature-icon">
                         <i class="fas fa-clock"></i>
                     </div>
-                    <h3>24/7 Voice Channels</h3>
-                    <p>Premium feature to keep music playing continuously with auto-reconnect and memory of queue even after bot restarts.</p>
+                    <h3>24/7 Voice</h3>
+                    <p>Premium feature to keep music playing continuously even when you're offline.</p>
                 </div>
                 
                 <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.6s">
                     <div class="feature-icon">
                         <i class="fas fa-cog"></i>
                     </div>
-                    <h3>Complete Customization</h3>
-                    <p>Change prefix, default volume, DJ roles, restricted channels, auto-play settings, and hundreds of other configurable options.</p>
-                </div>
-                
-                <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.7s">
-                    <div class="feature-icon">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <h3>Web Dashboard</h3>
-                    <p>Beautiful web interface to control the bot, configure settings, view analytics, and manage playlists without Discord commands.</p>
-                </div>
-                
-                <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.8s">
-                    <div class="feature-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3>Smart AI Integration</h3>
-                    <p>AI-powered recommendations, automatic playlist generation, and smart queue management based on your server's preferences.</p>
-                </div>
-                
-                <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.9s">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Enterprise Security</h3>
-                    <p>Military-grade encryption for all data transfers, regular security audits, and compliance with Discord's strict privacy standards.</p>
+                    <h3>Customization</h3>
+                    <p>Change prefix, default volume, DJ roles, and hundreds of other configurable options.</p>
                 </div>
             </div>
         </div>
@@ -1411,8 +1412,8 @@
     <!-- Commands Section -->
     <section class="commands" id="commands">
         <div class="container">
-            <h2 class="section-title animate__animated animate__fadeInUp">150+ Powerful Commands</h2>
-            <p class="section-subtitle">Complete control over your music experience with an extensive command library</p>
+            <h2 class="section-title animate__animated animate__fadeInUp">Powerful Commands</h2>
+            <p class="section-subtitle">Control your music experience with these commands</p>
             
             <div class="search-box animate__animated animate__fadeInUp">
                 <input type="text" id="command-search" placeholder="Search commands...">
@@ -1420,7 +1421,6 @@
             </div>
             
             <div class="commands-grid" id="commands-container">
-                <!-- Music Commands -->
                 <div class="command-card">
                     <div class="command-header">
                         <span class="command-name">play</span>
@@ -1460,38 +1460,24 @@
                     </div>
                 </div>
                 
-                <!-- Playlist Commands -->
                 <div class="command-card">
                     <div class="command-header">
-                        <span class="command-name">playlist create</span>
-                        <span class="command-category">Playlist</span>
+                        <span class="command-name">volume</span>
+                        <span class="command-category">Music</span>
                     </div>
-                    <p class="command-description">Creates a new playlist with the current queue or specified songs.</p>
-                    <div class="command-usage">/playlist create &lt;name&gt; [songs]</div>
+                    <p class="command-description">Adjusts the playback volume (0-150%).</p>
+                    <div class="command-usage">/volume &lt;level&gt;</div>
                     <div class="command-aliases">
-                        <span>pl create</span>
+                        <span>vol</span>
                     </div>
                 </div>
                 
-                <div class="command-card">
-                    <div class="command-header">
-                        <span class="command-name">playlist load</span>
-                        <span class="command-category">Playlist</span>
-                    </div>
-                    <p class="command-description">Loads a saved playlist into the current queue.</p>
-                    <div class="command-usage">/playlist load &lt;name&gt;</div>
-                    <div class="command-aliases">
-                        <span>pl load</span>
-                    </div>
-                </div>
-                
-                <!-- Audio Commands -->
                 <div class="command-card">
                     <div class="command-header">
                         <span class="command-name">bassboost</span>
                         <span class="command-category">Audio</span>
                     </div>
-                    <p class="command-description">Applies bassboost effect to the current track with adjustable level.</p>
+                    <p class="command-description">Applies bassboost effect to the current track.</p>
                     <div class="command-usage">/bassboost [level]</div>
                     <div class="command-aliases">
                         <span>bb</span>
@@ -1503,30 +1489,10 @@
                         <span class="command-name">8d</span>
                         <span class="command-category">Audio</span>
                     </div>
-                    <p class="command-description">Enables immersive 8D audio effect for the current track.</p>
+                    <p class="command-description">Enables immersive 8D audio effect.</p>
                     <div class="command-usage">/8d [on/off]</div>
                 </div>
                 
-                <!-- Settings Commands -->
-                <div class="command-card">
-                    <div class="command-header">
-                        <span class="command-name">prefix</span>
-                        <span class="command-category">Settings</span>
-                    </div>
-                    <p class="command-description">Changes the bot's command prefix for this server.</p>
-                    <div class="command-usage">/prefix &lt;new prefix&gt;</div>
-                </div>
-                
-                <div class="command-card">
-                    <div class="command-header">
-                        <span class="command-name">djrole</span>
-                        <span class="command-category">Settings</span>
-                    </div>
-                    <p class="command-description">Sets a DJ role that can use moderation commands.</p>
-                    <div class="command-usage">/djrole &lt;role&gt;</div>
-                </div>
-                
-                <!-- Utility Commands -->
                 <div class="command-card">
                     <div class="command-header">
                         <span class="command-name">lyrics</span>
@@ -1544,37 +1510,12 @@
                         <span class="command-name">nowplaying</span>
                         <span class="command-category">Utility</span>
                     </div>
-                    <p class="command-description">Displays detailed information about the currently playing song.</p>
+                    <p class="command-description">Displays information about the currently playing song.</p>
                     <div class="command-usage">/nowplaying</div>
                     <div class="command-aliases">
                         <span>np</span>
                     </div>
                 </div>
-                
-                <!-- Premium Commands -->
-                <div class="command-card">
-                    <div class="command-header">
-                        <span class="command-name">247</span>
-                        <span class="command-category">Premium</span>
-                    </div>
-                    <p class="command-description">Enables 24/7 mode that keeps the bot in voice channel.</p>
-                    <div class="command-usage">/247 [on/off]</div>
-                </div>
-                
-                <div class="command-card">
-                    <div class="command-header">
-                        <span class="command-name">autoplay</span>
-                        <span class="command-category">Premium</span>
-                    </div>
-                    <p class="command-description">Automatically plays similar songs when queue ends.</p>
-                    <div class="command-usage">/autoplay [on/off]</div>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 50px;">
-                <a href="#" class="btn primary-btn" style="padding: 15px 30px; font-size: 1.1rem;">
-                    <i class="fas fa-book"></i> View Full Command Documentation
-                </a>
             </div>
         </div>
     </section>
@@ -1582,8 +1523,8 @@
     <!-- Premium Section -->
     <section class="premium" id="premium">
         <div class="container">
-            <h2 class="section-title animate__animated animate__fadeInUp">Premium Tiers</h2>
-            <p class="section-subtitle">Unlock the full potential of EXON with our premium plans</p>
+            <h2 class="section-title animate__animated animate__fadeInUp">Premium Plan</h2>
+            <p class="section-subtitle">Upgrade to unlock exclusive features</p>
             
             <div class="pricing-grid">
                 <div class="pricing-card animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
@@ -1592,14 +1533,13 @@
                         <div class="price">Free</div>
                     </div>
                     <ul class="features-list">
-                        <li><i class="fas fa-check"></i> Standard 128kbps audio quality</li>
+                        <li><i class="fas fa-check"></i> Standard 128kbps audio</li>
                         <li><i class="fas fa-check"></i> Basic music commands</li>
                         <li><i class="fas fa-check"></i> 5 audio filters</li>
                         <li><i class="fas fa-check"></i> Queue up to 50 songs</li>
                         <li><i class="fas fa-check"></i> 3 saved playlists</li>
                         <li><i class="fas fa-times"></i> No 24/7 mode</li>
                         <li><i class="fas fa-times"></i> No autoplay</li>
-                        <li><i class="fas fa-times"></i> No web dashboard</li>
                         <li><i class="fas fa-times"></i> Standard support</li>
                     </ul>
                     <button class="btn secondary-btn">Current Plan</button>
@@ -1607,164 +1547,21 @@
                 
                 <div class="pricing-card featured animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
                     <div class="pricing-header">
-                        <div class="popular-badge">Most Popular</div>
                         <h3>Premium</h3>
                         <div class="price">$7.99<span>/month</span></div>
                     </div>
                     <ul class="features-list">
-                        <li><i class="fas fa-check"></i> High 256kbps audio quality</li>
+                        <li><i class="fas fa-check"></i> High 256kbps audio</li>
                         <li><i class="fas fa-check"></i> All music commands</li>
                         <li><i class="fas fa-check"></i> 15+ audio filters</li>
                         <li><i class="fas fa-check"></i> Queue up to 200 songs</li>
                         <li><i class="fas fa-check"></i> 20 saved playlists</li>
                         <li><i class="fas fa-check"></i> 24/7 mode</li>
                         <li><i class="fas fa-check"></i> Autoplay</li>
-                        <li><i class="fas fa-check"></i> Basic web dashboard</li>
                         <li><i class="fas fa-check"></i> Priority support</li>
                     </ul>
                     <button class="btn premium-btn"><i class="fas fa-crown"></i> Get Premium</button>
                 </div>
-                
-                <div class="pricing-card animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
-                    <div class="pricing-header">
-                        <h3>Ultimate</h3>
-                        <div class="price">$14.99<span>/month</span></div>
-                    </div>
-                    <ul class="features-list">
-                        <li><i class="fas fa-check"></i> Studio 320kbps audio quality</li>
-                        <li><i class="fas fa-check"></i> All commands + beta features</li>
-                        <li><i class="fas fa-check"></i> 25+ audio filters</li>
-                        <li><i class="fas fa-check"></i> Unlimited queue length</li>
-                        <li><i class="fas fa-check"></i> Unlimited playlists</li>
-                        <li><i class="fas fa-check"></i> 24/7 mode with persistence</li>
-                        <li><i class="fas fa-check"></i> Smart autoplay</li>
-                        <li><i class="fas fa-check"></i> Advanced web dashboard</li>
-                        <li><i class="fas fa-check"></i> VIP support</li>
-                    </ul>
-                    <button class="btn primary-btn">Get Ultimate</button>
-                </div>
-                
-                <div class="pricing-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
-                    <div class="pricing-header">
-                        <h3>Server</h3>
-                        <div class="price">$29.99<span>/month</span></div>
-                    </div>
-                    <ul class="features-list">
-                        <li><i class="fas fa-check"></i> Everything in Ultimate</li>
-                        <li><i class="fas fa-check"></i> Server-wide premium access</li>
-                        <li><i class="fas fa-check"></i> Custom branded bot</li>
-                        <li><i class="fas fa-check"></i> Dedicated bot instance</li>
-                        <li><i class="fas fa-check"></i> Custom commands</li>
-                        <li><i class="fas fa-check"></i> Web dashboard customization</li>
-                        <li><i class="fas fa-check"></i> Live statistics</li>
-                        <li><i class="fas fa-check"></i> 24/7 monitoring</li>
-                        <li><i class="fas fa-check"></i> Enterprise support</li>
-                    </ul>
-                    <button class="btn primary-btn">Get Server Plan</button>
-                </div>
-            </div>
-            
-            <div class="premium-features" style="margin-top: 80px;">
-                <h3 class="section-title" style="font-size: 2rem; margin-bottom: 30px;">Premium-Exclusive Features</h3>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon" style="background: linear-gradient(135deg, var(--premium) 0%, var(--premium-dark) 100%);">
-                            <i class="fas fa-infinity"></i>
-                        </div>
-                        <h3>24/7 Music</h3>
-                        <p>Keep your music playing non-stop even when you're offline with our persistent 24/7 mode that survives bot restarts.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon" style="background: linear-gradient(135deg, var(--premium) 0%, var(--premium-dark) 100%);">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <h3>Autoplay</h3>
-                        <p>When your queue ends, EXON will automatically play similar songs based on your listening history and preferences.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon" style="background: linear-gradient(135deg, var(--premium) 0%, var(--premium-dark) 100%);">
-                            <i class="fas fa-tachometer-alt"></i>
-                        </div>
-                        <h3>Web Dashboard</h3>
-                        <p>Control your music, manage playlists, and configure settings through our beautiful web interface.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon" style="background: linear-gradient(135deg, var(--premium) 0%, var(--premium-dark) 100%);">
-                            <i class="fas fa-headset"></i>
-                        </div>
-                        <h3>Priority Support</h3>
-                        <p>Get faster response times and dedicated help from our support team for all your questions and issues.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <h2 class="section-title animate__animated animate__fadeInUp">What Our Users Say</h2>
-            <p class="section-subtitle">Don't just take our word for it - hear from our community</p>
-            
-            <div class="testimonials-slider owl-carousel">
-                <div class="testimonial-card">
-                    <p class="testimonial-content">"EXON has completely transformed our server's music experience. The audio quality is unmatched and the 24/7 feature keeps our community vibe going all day long!"</p>
-                    <div class="testimonial-author">
-                        <img src="https://i.imgur.com/7D1ZS5s.jpg" alt="User avatar" class="author-avatar">
-                        <div class="author-info">
-                            <h4>Mark Johnson</h4>
-                            <p>Owner of Rhythm Nation</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <p class="testimonial-content">"I've tried every music bot out there and EXON is by far the most reliable with the best features. The web dashboard makes managing our playlists so easy!"</p>
-                    <div class="testimonial-author">
-                        <img src="https://i.imgur.com/Vz0G1QR.jpg" alt="User avatar" class="author-avatar">
-                        <div class="author-info">
-                            <h4>Sarah Williams</h4>
-                            <p>Admin of Chill Zone</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <p class="testimonial-content">"The audio filters are incredible - our members love the 8D and nightcore effects. Plus, the bot never lags even with hundreds of users!"</p>
-                    <div class="testimonial-author">
-                        <img src="https://i.imgur.com/9yZQx3J.jpg" alt="User avatar" class="author-avatar">
-                        <div class="author-info">
-                            <h4>Alex Chen</h4>
-                            <p>Moderator at Anime Hub</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <p class="testimonial-content">"Worth every penny for premium. The autoplay feature keeps discovering amazing new music for our community that we would never have found otherwise."</p>
-                    <div class="testimonial-author">
-                        <img src="https://i.imgur.com/5XwF4x8.jpg" alt="User avatar" class="author-avatar">
-                        <div class="author-info">
-                            <h4>Emily Rodriguez</h4>
-                            <p>DJ at Music Lovers</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Dashboard Preview Section -->
-    <section class="dashboard">
-        <div class="container">
-            <h2 class="section-title animate__animated animate__fadeInUp">Web Dashboard Preview</h2>
-            <p class="section-subtitle">Control your music and settings from our beautiful web interface</p>
-            
-            <div class="dashboard-container animate__animated animate__fadeInUp">
-                <img src="https://i.imgur.com/KL4Z8xP.png" alt="EXON Web Dashboard" class="dashboard-image" loading="lazy">
             </div>
         </div>
     </section>
@@ -1782,7 +1579,7 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>You can add EXON to your server by clicking the "Invite" button at the top of this page. This will redirect you to Discord's authorization page where you can select which server to add the bot to and customize permissions. You need "Manage Server" permissions to add bots.</p>
+                        <p>Click the "Invite" button at the top of this page. You'll be redirected to Discord's authorization page where you can select your server and customize permissions. You need "Manage Server" permissions to add bots.</p>
                     </div>
                 </div>
                 
@@ -1792,7 +1589,7 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>EXON requires the following permissions to function properly: View Channels, Send Messages, Embed Links, Connect, Speak, Use Voice Activity, and Add Reactions. The invite link will automatically request these permissions. For advanced features, you may need to grant additional permissions through your server settings.</p>
+                        <p>EXON requires: View Channels, Send Messages, Embed Links, Connect, Speak, and Use Voice Activity. The invite link automatically requests these permissions.</p>
                     </div>
                 </div>
                 
@@ -1802,17 +1599,17 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Premium subscriptions are billed monthly and provide access to enhanced features. You can purchase premium for yourself (applies to all servers where you have DJ permissions) or for an entire server. Subscriptions auto-renew but can be canceled anytime. Payment is handled securely through Stripe.</p>
+                        <p>Premium is billed monthly and provides access to enhanced features. Subscriptions auto-renew but can be canceled anytime. Payment is handled securely through Stripe.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Can I use EXON for commercial purposes?</span>
+                        <span>Can I get a refund for premium?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes, our Server plan is designed for commercial use including streaming, radio stations, and public venues. However, you must comply with Discord's Terms of Service and ensure you have proper licensing for any copyrighted content played through the bot in commercial settings.</p>
+                        <p>We offer refunds within 14 days of purchase if you're unsatisfied with the premium features. Contact our support team for assistance.</p>
                     </div>
                 </div>
                 
@@ -1822,80 +1619,7 @@
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
-                        <p>You can report bugs or suggest new features by joining our support server (linked at the top of this page). We actively monitor feedback and implement the most requested features in regular updates. Premium users get priority consideration for their suggestions.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Is EXON available in other languages?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Currently EXON supports English, Spanish, French, German, and Japanese. More languages are being added based on user demand. You can change the language in the bot's settings using the /language command (server admins only).</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section class="team" id="team">
-        <div class="container">
-            <h2 class="section-title animate__animated animate__fadeInUp">Meet The Team</h2>
-            <p class="section-subtitle">The talented developers behind EXON</p>
-            
-            <div class="team-grid">
-                <div class="team-member animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
-                    <img src="https://i.imgur.com/m8ZkQ8E.jpg" alt="Team member" class="member-avatar">
-                    <div class="member-info">
-                        <h3 class="member-name">James Wilson</h3>
-                        <p class="member-role">Lead Developer</p>
-                        <p class="member-bio">With over 10 years of experience in audio engineering and bot development, James created EXON to solve the limitations of existing music bots.</p>
-                        <div class="member-social">
-                            <a href="#"><i class="fab fa-github"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-discord"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="team-member animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
-                    <img src="https://i.imgur.com/3VJk7fL.jpg" alt="Team member" class="member-avatar">
-                    <div class="member-info">
-                        <h3 class="member-name">Lisa Zhang</h3>
-                        <p class="member-role">Backend Engineer</p>
-                        <p class="member-bio">Lisa specializes in high-performance audio streaming and queue management systems that make EXON so reliable at scale.</p>
-                        <div class="member-social">
-                            <a href="#"><i class="fab fa-github"></i></a>
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="team-member animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
-                    <img src="https://i.imgur.com/pQ3hWYd.jpg" alt="Team member" class="member-avatar">
-                    <div class="member-info">
-                        <h3 class="member-name">Marcus Rivera</h3>
-                        <p class="member-role">Frontend Developer</p>
-                        <p class="member-bio">Marcus designed EXON's intuitive web dashboard and is responsible for the smooth user experience across all interfaces.</p>
-                        <div class="member-social">
-                            <a href="#"><i class="fab fa-dribbble"></i></a>
-                            <a href="#"><i class="fab fa-behance"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="team-member animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
-                    <img src="https://i.imgur.com/9yZQx3J.jpg" alt="Team member" class="member-avatar">
-                    <div class="member-info">
-                        <h3 class="member-name">Sophie Martin</h3>
-                        <p class="member-role">Community Manager</p>
-                        <p class="member-bio">Sophie handles user support, documentation, and gathers community feedback to help guide EXON's development roadmap.</p>
-                        <div class="member-social">
-                            <a href="#"><i class="fab fa-discord"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                        </div>
+                        <p>Join our support server (linked at the top of this page) to report bugs or suggest new features. We implement the most requested features in regular updates.</p>
                     </div>
                 </div>
             </div>
@@ -1905,12 +1629,12 @@
     <!-- CTA Section -->
     <section class="cta">
         <div class="container animate__animated animate__zoomIn">
-            <h2>Ready to Transform Your Server?</h2>
-            <p>Join over 15,000 servers enjoying the best Discord music experience available</p>
+            <h2>Ready to Enhance Your Server?</h2>
+            <p>Join thousands of servers enjoying the best Discord music experience</p>
             <div class="cta-buttons">
                 <a href="#" class="btn primary-btn"><i class="fas fa-robot"></i> Invite EXON</a>
-                <a href="#" class="btn support-btn"><i class="fas fa-headset"></i> Join Support Server</a>
-                <a href="#" class="btn secondary-btn"><i class="fas fa-crown"></i> Go Premium</a>
+                <a href="#" class="btn support-btn"><i class="fas fa-headset"></i> Support Server</a>
+                <a href="#premium" class="btn premium-btn"><i class="fas fa-crown"></i> Go Premium</a>
             </div>
         </div>
     </section>
@@ -1924,56 +1648,41 @@
                         <i class="fas fa-music"></i>
                         <h1>EXON</h1>
                     </div>
-                    <p>The most advanced music bot for Discord with studio-quality audio and premium features.</p>
+                    <p>The most advanced purple-themed music bot for Discord with premium features.</p>
                     <div class="social-links">
                         <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
-                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
                         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-links">
                     <h3>Resources</h3>
                     <ul>
+                        <li><a href="#commands">Commands</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#premium">Premium</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Support Server</a></li>
                         <li><a href="#">Documentation</a></li>
-                        <li><a href="#">Command List</a></li>
                         <li><a href="#">Status</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Changelog</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h3>Legal</h3>
-                    <ul>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                        <li><a href="#">DMCA</a></li>
-                        <li><a href="#">Licenses</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#team">Our Team</a></li>
-                        <li><a href="#">Careers</a></li>
                         <li><a href="#">Contact</a></li>
-                        <li><a href="#">Partners</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-newsletter">
                     <h3>Newsletter</h3>
-                    <p>Subscribe to get updates on new features and releases.</p>
+                    <p>Subscribe for updates on new features and releases.</p>
                     <form class="newsletter-form">
                         <input type="email" placeholder="Your email" required>
                         <button type="submit" class="btn primary-btn">Subscribe</button>
                     </form>
-                    <p style="font-size: 0.8rem; margin-top: 10px;">We respect your privacy. Unsubscribe at any time.</p>
                 </div>
             </div>
             
@@ -1982,8 +1691,6 @@
                 <div class="legal-links">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
-                    <a href="#">GDPR</a>
                 </div>
             </div>
         </div>
@@ -1995,7 +1702,6 @@
     </a>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script>
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -2077,24 +1783,6 @@
             });
         });
         
-        // Testimonials slider
-        $(document).ready(function(){
-            $(".testimonials-slider").owlCarousel({
-                items: 1,
-                loop: true,
-                autoplay: true,
-                autoplayTimeout: 5000,
-                autoplayHoverPause: true,
-                dots: true,
-                nav: true,
-                responsive: {
-                    768: {
-                        items: 2
-                    }
-                }
-            });
-        });
-        
         // Command search functionality
         const commandSearch = document.getElementById('command-search');
         if (commandSearch) {
@@ -2133,7 +1821,7 @@
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
         
-        // Random stats counter (for demo purposes)
+        // Stats counter animation
         function animateValue(id, start, end, duration) {
             const obj = document.getElementById(id);
             let startTimestamp = null;
@@ -2155,9 +1843,9 @@
         
         // Animate stats on page load
         window.addEventListener('load', () => {
-            animateValue('guilds-count', 0, 15842, 2000);
-            animateValue('users-count', 0, 2100000, 2000);
-            animateValue('songs-count', 0, 58000000, 2000);
+            animateValue('guilds-count', 0, 25000, 2000);
+            animateValue('users-count', 0, 3500000, 2000);
+            animateValue('songs-count', 0, 85000000, 2000);
         });
     </script>
 </body>
